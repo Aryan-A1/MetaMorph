@@ -1,68 +1,44 @@
+/* Global layout */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --bg: #0b0d10;
+  --fg: #e9eef5;
+  --muted: #a7b0be;
+  --card: #11151a;
+  --accent: #4f7cff;
+  --accent-contrast: #fff;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; background: var(--bg); color: var(--fg); }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
+a { color: inherit; text-decoration: none; }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
+.app-container { display: flex; min-height: 100%; flex-direction: column; }
+.app-main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 48px 16px; }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
+/* Header */
+.header { position: sticky; top: 0; background: rgba(11,13,16,0.6); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.06); }
+.header-inner { max-width: 1100px; margin: 0 auto; padding: 16px; display: flex; align-items: center; justify-content: space-between; }
+.brand { font-weight: 700; letter-spacing: .2px; }
+.nav { display: flex; gap: 16px; }
+.nav-link { color: var(--muted); font-size: 14px; }
+.nav-link:hover { color: var(--fg); }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
+/* Hero */
+.hero { text-align: center; margin-bottom: 24px; }
+.hero-title { font-size: 40px; margin: 0 0 12px; }
+.hero-subtitle { color: var(--muted); margin: 0; }
+
+/* Upload card */
+.upload { width: 100%; }
+.upload-card { max-width: 680px; margin: 0 auto; border: 1px dashed rgba(255,255,255,0.15); border-radius: 16px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding: 48px 24px; text-align: center; }
+.upload-icon { font-size: 36px; margin-bottom: 8px; }
+.upload-title { margin: 8px 0 6px; font-size: 18px; }
+.upload-subtitle { margin: 0 0 16px; color: var(--muted); }
+.btn-primary { background: var(--accent); color: var(--accent-contrast); border: none; border-radius: 10px; padding: 10px 16px; font-weight: 600; cursor: pointer; }
+.btn-primary:hover { filter: brightness(1.05); }
+
+/* Footer */
+.footer { border-top: 1px solid rgba(255,255,255,0.06); }
+.footer-inner { max-width: 1100px; margin: 0 auto; padding: 24px 16px; color: var(--muted); font-size: 14px; text-align: center; }
